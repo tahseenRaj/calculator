@@ -8,7 +8,7 @@ class CurrencyConverter extends StatefulWidget {
 }
 
 class _CurrencyConverterState extends State<CurrencyConverter> {
-  List countries = <String>[ "AED", "AFN", "AUD", "AMD", "BDT", "CAD", "CHF", "CNY", "EGP", "EUR", "GBP", "GBP", "INR", "JOD", "KRW", "PKR", "SAR", "USD"];
+  // List countries = <String>[ "AED", "AFN", "AUD", "AMD", "BDT", "CAD", "CHF", "CNY", "EGP", "EUR", "GBP", "GBP", "INR", "JOD", "KRW", "PKR", "SAR", "USD"];
   String dropdownValue = 'One';
   @override
   Widget build(BuildContext context) {
@@ -61,7 +61,7 @@ class _CurrencyConverterState extends State<CurrencyConverter> {
             height: 30,
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -130,7 +130,7 @@ class _CurrencyConverterState extends State<CurrencyConverter> {
               ],
             ),
           ),
-          SizedBox(height: 50,),
+          const SizedBox(height: 50,),
           SizedBox(
             height: 50,
             width: double.infinity,
@@ -141,7 +141,7 @@ class _CurrencyConverterState extends State<CurrencyConverter> {
                 splashFactory: NoSplash.splashFactory,
               ),
               onPressed: () {}, 
-              child: Text('CONVERT', style: TextStyle(fontSize: 20),)
+              child: const Text('CONVERT', style: TextStyle(fontSize: 20),)
             ),
           )
         ],
