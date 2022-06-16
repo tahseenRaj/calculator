@@ -1,4 +1,5 @@
 import 'package:calculator/calculator.dart';
+import 'package:calculator/currency_converter.dart';
 import 'package:flutter/material.dart';
 
 
@@ -41,16 +42,21 @@ class Dashboard extends StatelessWidget {
               ],
             ),
           ),
-          body: const TabBarView(
-            physics: NeverScrollableScrollPhysics(),
-            children: <Widget>[
-              Center(
-                child: Calculator(),
-              ),
-              Center(
-                child: Text("It's rainy here"),
-              ),
-            ],
+          body: GestureDetector(
+            onTap: () {
+              FocusScope.of(context).requestFocus(new FocusNode()); //remove focus
+            },
+            child: const TabBarView(
+              physics: NeverScrollableScrollPhysics(),
+              children: <Widget>[
+                Center(
+                  child: Calculator(),
+                ),
+                Center(
+                  child: CurrencyConverter(),
+                ),
+              ],
+            ),
           ),
         ),
       ),

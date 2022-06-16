@@ -38,8 +38,7 @@ class _CalculatorState extends State<Calculator> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
+    return Column(
         children: [
           Container(
             height: 100,
@@ -161,8 +160,7 @@ class _CalculatorState extends State<Calculator> {
                         )));
                   }))
         ],
-      ),
-    );
+      );
   }
 
   bool isOperator(String x) {
