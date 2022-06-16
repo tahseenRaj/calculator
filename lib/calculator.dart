@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:math_expressions/math_expressions.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class Calculator extends StatefulWidget {
+  const Calculator({Key? key}) : super(key: key);
 
   @override
-  State<Home> createState() => _HomeState();
+  State<Calculator> createState() => _CalculatorState();
 }
 
-class _HomeState extends State<Home> {
+class _CalculatorState extends State<Calculator> {
   // Array of button
   final List<String> operations = [
     'C',
     '\u{232B}',
-    '😕',
+    '👻',
     '/',
     '7',
     '8',
@@ -34,20 +34,20 @@ class _HomeState extends State<Home> {
     '=',
   ];
   var userInput = '';
-  var answer = '';
+  var answer = '0';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-          child: Column(
+      body: Column(
         children: [
           Container(
-            height: 180,
+            height: 100,
             width: double.infinity,
             // color: Colors.red,
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 25),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 10,
+            ),
             alignment: Alignment.centerRight,
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -58,6 +58,11 @@ class _HomeState extends State<Home> {
                 style: GoogleFonts.robotoSlab(fontSize: 40, letterSpacing: 1),
               ),
             ),
+          ),
+          const Divider(
+            color: Colors.black12,
+            indent: 20,
+            endIndent: 20,
           ),
           Container(
             height: 100,
@@ -113,27 +118,31 @@ class _HomeState extends State<Home> {
                           } else if (index == 2) {
                             setState(() {
                               showDialog(
-                                // barrierColor: Colors.transparent,
-                                context: context,
-                                builder: (context) {
-                                  Future.delayed(Duration(seconds: 4), () {
-                                    Navigator.of(context).pop(true);
+                                  // barrierColor: Colors.transparent,
+                                  context: context,
+                                  builder: (context) {
+                                    Future.delayed(const Duration(seconds: 3),
+                                        () {
+                                      Navigator.of(context).pop(true);
+                                    });
+                                    return const AlertDialog(
+                                      elevation: 0,
+                                      backgroundColor: Colors.transparent,
+                                      title: Image(
+                                          image: AssetImage('assets/6os.gif')),
+                                    );
                                   });
-                                  return const AlertDialog(
-                                    elevation: 0,
-                                    backgroundColor: Colors.transparent,
-                                    title: Image(image: AssetImage('assets/6os.gif')),
-                                  );
-                                });
                               ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  backgroundColor: Colors.blueGrey,
-                                  elevation: 1,
-                                  duration: Duration(milliseconds: 2000),
-                                  content: Text('Sorry don\'t know what to do with this operator! 😕')));
+                                  const SnackBar(
+                                      backgroundColor: Colors.blueGrey,
+                                      elevation: 1,
+                                      duration: Duration(milliseconds: 2000),
+                                      content: Text(
+                                          'Sorry don\'t know what to do with this operator! 😕')));
                             });
                           } else if (index == 19) {
                             setState(() {
+                              answer = '';
                               equalPressed();
                             });
                           } else {
@@ -152,12 +161,17 @@ class _HomeState extends State<Home> {
                         )));
                   }))
         ],
-      )),
+      ),
     );
   }
 
   bool isOperator(String x) {
-    if (x == '/' || x == '\u00d7' || x == '-' || x == '+' || x == '=' || x == '%') {
+    if (x == '/' ||
+        x == '\u00d7' ||
+        x == '-' ||
+        x == '+' ||
+        x == '=' ||
+        x == '%') {
       return true;
     }
     return false;

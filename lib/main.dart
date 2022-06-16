@@ -1,4 +1,4 @@
-import 'package:calculator/home.dart';
+import 'package:calculator/dashboard.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: Dashboard(),
     );
   }
 }
