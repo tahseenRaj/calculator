@@ -36,7 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^3.0.1
   math_expressions: ^2.3.1
-  money_converter: ^2.0.1
+  http: ^0.13.4
 
 dev_dependencies:
   flutter_test:
